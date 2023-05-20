@@ -91,12 +91,10 @@ function setup() {
 }
 
 function clickedItem(ind) {    
-
-    showcase.scrollIntoView()
-
     if (selected != ind) {
         showDesc(ind, true)
         if (selected >= 0) {
+            showcase.scrollIntoView()
             menuItems[selected].querySelector("h1").classList.remove("selected")
         }
     }
