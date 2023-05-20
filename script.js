@@ -139,6 +139,7 @@ function showDesc(ind, transition) {
         showcaseinner.animate({
             height: "0",
             top: "50%",
+            background: "white"
         }, {duration: 300, fill: "forwards", easing: "cubic-bezier(0,1,.48,1)"})
 
         setTimeout(() => {
@@ -146,6 +147,7 @@ function showDesc(ind, transition) {
             showcaseinner.animate({
                 height: "100%",
                 top: "0",
+                background: "radial-gradient(#00000046, #00000068)"
             }, {duration: 300, fill: "forwards", easing: "cubic-bezier(0,1,.48,1)"})     
         }, 400);
 
