@@ -1,0 +1,298 @@
+
+@font-face {
+    font-family: OpenSans;
+    src: url(fonts/OpenSans-VariableFont.ttf);
+} 
+:root {
+    --darkblue: #090a12;
+    --bluepurple: #2e294e;
+    --gray: #7d8491;
+    --lightblue: #68b2da;
+    --lightmagenta: #ce46ff;
+    --lightermagenta: #de8cfc;
+  }
+
+* {
+    color: white;
+    font-family: 'OpenSans', 'Courier New', Courier, monospace;
+}
+
+  /* FORGROUND ELEMENTS */
+
+
+h1 {
+    letter-spacing: 5px;
+    text-shadow: white 0 0 5px;
+    margin: 0;
+    pointer-events: none;
+    user-select: none;
+
+    transition: color .3s;
+}
+
+h2, h3, p, li {
+    text-shadow: black 5px 5px 10px;
+}
+
+h2 {
+    font-size: 2em;
+}
+
+h3 {
+    font-size: 1.2em;
+}
+
+a {
+    color: var(--lightblue);
+    text-shadow: var(--lightblue) 0 0 2px;
+    font-weight: 400;
+    margin-left: 5px;
+}
+
+p, ul {
+    padding: 0 5%
+}
+
+.selected {
+    color: var(--lightermagenta);
+    text-shadow: var(--lightmagenta) 0 0 5px;
+}
+
+.pulse {
+    animation: pulseAnim 300ms 1;
+}
+
+@keyframes pulseAnim {
+    0% {
+        text-shadow: var(--lightmagenta) 0 0 5px;
+    }
+
+    50% {
+        text-shadow: var(--lightmagenta) 0 0 15px;
+    }
+
+    100% {
+        text-shadow: var(--lightmagenta) 0 0 5px;
+    }
+}
+
+.menuCollection {
+    position:absolute;
+    top: 10vh;
+    left: 2vw;
+    border-right: 5px solid white;
+    padding-right: .8vw;
+    width: 15vw;
+    text-align: left;
+
+}
+
+.menuCollection:hover > .menuItem {
+    opacity: .1;
+}
+
+.menuCollection:hover > .menuItem:hover  {
+    opacity: 1;
+}
+
+#showcase {
+    position: fixed;
+
+    border: 5px solid var(--lightmagenta);
+    border-radius: 5px;
+    top: 15vh;
+    left: 25vw;
+
+    width: 70vw;
+    height: 70vh;
+
+    box-shadow: var(--lightmagenta) 0 0 10px;
+
+}
+
+#showcaseinner {
+    position: relative;
+    width: auto;
+    height: 100%;
+    background: radial-gradient(#00000046, #00000068);
+    overflow: auto;
+    
+    padding: 0 2%;
+
+    /* background-color: red; */
+}
+
+#showcaseinner::-webkit-scrollbar {
+    width:.3vw;
+}
+
+#showcaseinner::-webkit-scrollbar-track {
+    -webkit-box-shadow:inset 0 0 6px var(--bluepurple); 
+    border-radius:5px;
+}
+
+#showcaseinner::-webkit-scrollbar-thumb {
+    /* -webkit-box-shadow: inset 0 0 6px red;  */
+    background: linear-gradient(to bottom, transparent, var(--lightermagenta), transparent);
+}
+
+.menuItem {
+    padding: 20px 0;
+    transition: opacity .3s;
+}
+
+
+/* Connector pieces */
+#connector1, #connector2, #connector3 {
+    position: fixed;
+    background-color: var(--lightermagenta);
+    transition: top .3s;
+    box-shadow: var(--lightmagenta) 0 0 5px;
+
+}
+
+#connector1, #connector3 {
+    width: 3.5vw;
+    height: 4px;
+}
+
+#connector1 {
+    left: 18vw;
+}
+
+#connector3 {
+    left: 21.5vw;
+    top: 50vh;
+}
+
+#connector2 {
+    width: 4px;
+    height: 20px;
+    left: 21.5vw;
+    transition-property: height, top;
+    transition-duration: .3s;
+}
+
+
+
+  /* BACKGROUND ELEMENTS */
+
+body {
+    margin: 0;
+    overflow-x: hidden;
+}
+
+#backgroundDim {
+    opacity: .3;
+
+    transition: opacity .5s;
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    background-color: black;
+
+    top: 0;
+    left: 0;
+
+    z-index: -50;
+}
+
+#backgroundPattern {
+    top: 0;
+    left: 0;
+    background-position: 0% 0%;
+    background-size: 8vmin 8vmin;
+    background-image: radial-gradient(gray 4%, transparent 5%);
+
+    opacity: .3;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    
+    animation: dotMovement 90s infinite ease-in;
+
+    transition: background-size .5s;
+
+    z-index: -98;
+}
+
+@keyframes dotMovement {
+    from {
+        background-position-x: 0;
+    }
+
+    to {
+        background-position-x: -100vmin;
+    }
+}
+
+#backgroundGradient {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: radial-gradient(var(--bluepurple), var(--darkblue));
+    background-size: 200vmin 100vmin;
+    animation: bodyMove 20s infinite linear;
+    transition: background-size .5s;
+    z-index: -101;
+}
+
+@keyframes bodyMove {
+    from {
+        background-position-x: 0;
+    }
+
+    to {
+        background-position-x: 200vmin;
+    }
+}
+
+
+#cursorContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    z-index: -100
+}
+
+#glow {
+    position: relative;
+    border-radius: 50%;
+    pointer-events: none;
+    display: flex;
+    overflow: hidden;
+}
+
+#glowCircle {
+    background: linear-gradient(var(--lightmagenta), var(--lightblue));
+    width: 100px;
+    height: 100px;
+    /* background: repeating-linear-gradient(var(--lightblue), var(--lightorange)); */
+    animation: patternMove 5s infinite linear;
+    mix-blend-mode: multiply;
+
+    z-index: inherit;
+}
+
+@keyframes patternMove {
+    from {
+        rotate: 0;
+    }
+
+    to {
+        rotate: 360deg;
+    }
+}
+
+.glowHole {
+    position: absolute;
+    background-color: var(--darkblue);
+    width: 5%;
+    height: 2%;
+    left: 0;
+    top: 20px;
+}
