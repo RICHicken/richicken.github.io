@@ -58,6 +58,7 @@ a {
     text-shadow: var(--lightblue) 0 0 2px;
     font-weight: 200;
     margin-left: 5px;
+    word-wrap: break-word;
 }
 
 p, ul {

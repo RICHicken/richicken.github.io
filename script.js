@@ -14,6 +14,26 @@ window.onload = e => {
     setup()
     changeGlow()
     clickedItem(initialSelect)
+
+    window.addEventListener("scroll", e => {    
+        let eInfo = menuItems[selected].getBoundingClientRect()
+    
+        let targetY = (eInfo.y + (eInfo.height/2)) - (connector1.style.height /2)
+        backgroundPattern.style.backgroundPosition = `0 ${-window.scrollY/4}px`;
+        backgroundGradient.style.backgroundPosition = `0 ${-window.scrollY/10}px`;
+        connector1.style.top = `${targetY}px`
+    
+        let c2height = (targetY) - (window.innerHeight/ 2)
+        if (c2height > 0) {
+            connector2.style.height = `${targetY - (window.innerHeight/ 2)}px`
+            connector2.style.top = `${(window.innerHeight/ 2) + 4}px`
+        }
+        else {
+            connector2.style.top = `${targetY}px`
+            connector2.style.height = `${((targetY) - (window.innerHeight/ 2)) * -1}px`
+        }
+        
+    });
 }
 
 window.addEventListener("resize", e => {
@@ -27,26 +47,6 @@ window.addEventListener("mousemove", e => {
         left: `${e.clientX - glowSize/2}px`,
         top: `${e.clientY - glowSize/2}px`
     }, {duration: 3000, fill: "forwards"})
-});
-
-window.addEventListener("scroll", e => {    
-    let eInfo = menuItems[selected].getBoundingClientRect()
-
-    let targetY = (eInfo.y + (eInfo.height/2)) - (connector1.style.height /2)
-    backgroundPattern.style.backgroundPosition = `0 ${-window.scrollY/4}px`;
-    backgroundGradient.style.backgroundPosition = `0 ${-window.scrollY/10}px`;
-    connector1.style.top = `${targetY}px`
-
-    let c2height = (targetY) - (window.innerHeight/ 2)
-    if (c2height > 0) {
-        connector2.style.height = `${targetY - (window.innerHeight/ 2)}px`
-        connector2.style.top = `${(window.innerHeight/ 2) + 4}px`
-    }
-    else {
-        connector2.style.top = `${targetY}px`
-        connector2.style.height = `${((targetY) - (window.innerHeight/ 2)) * -1}px`
-    }
-    
 });
 
 var holes
