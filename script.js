@@ -7,8 +7,6 @@ selected = -1;
 
 initialSelect = 0;
 
-targetY = 0
-
 window.onload = e => {
     setup()
     changeGlow()
@@ -28,20 +26,23 @@ window.addEventListener("mousemove", e => {
     }, {duration: 3000, fill: "forwards"})
 });
 
-window.addEventListener("scroll", e => {
+window.addEventListener("scroll", e => {    
+    let eInfo = menuItems[selected].getBoundingClientRect()
 
+    let targetY = (eInfo.y + (eInfo.height/2)) - (connector1.style.height /2)
     backgroundPattern.style.backgroundPosition = `0 ${-window.scrollY/4}px`;
     backgroundGradient.style.backgroundPosition = `0 ${-window.scrollY/10}px`;
-    connector1.style.top = `${targetY - window.scrollY}px`
+    connector1.style.top = `${targetY}px`
 
-    let c2height = (targetY - window.scrollY) - (window.innerHeight/ 2)
+    let c2height = (targetY) - (window.innerHeight/ 2)
     if (c2height > 0) {
-        connector2.style.height = `${(targetY - window.scrollY) - (window.innerHeight/ 2)}px`
+        connector2.style.height = `${targetY - (window.innerHeight/ 2)}px`
         connector2.style.top = `${(window.innerHeight/ 2) + 4}px`
     }
     else {
-        connector2.style.top = `${targetY - window.scrollY}px`
-        connector2.style.height = `${((targetY - window.scrollY) - (window.innerHeight/ 2)) * -1}px`
+        console.log(((targetY - window.scrollY) - (window.innerHeight/ 2)) * -1)
+        connector2.style.top = `${targetY}px`
+        connector2.style.height = `${((targetY) - (window.innerHeight/ 2)) * -1}px`
     }
     
 });
@@ -115,7 +116,7 @@ function showDesc(ind, transition) {
     // let connector3Vert = connector3.getBoundingClientRect().y
     let connector3Vert = window.innerHeight/ 2
 
-    targetY = (eInfo.y + (eInfo.height/2)) - (connector1.style.height /2);
+    let targetY = (eInfo.y + (eInfo.height/2)) - (connector1.style.height /2);
 
     connector1.style.top = `${targetY}px`
     if (connector3Vert - targetY < 0) {
@@ -131,18 +132,18 @@ function showDesc(ind, transition) {
 
         showcaseinner.innerHTML = ""
         showcaseinner.animate({
-            height: `0`,
-            top: `50%`
+            height: "0",
+            top: "50%",
         }, {duration: 300, fill: "forwards", easing: "cubic-bezier(0,1,.48,1)"})
 
         setTimeout(() => {
             showcaseinner.innerHTML = menuDesc[ind].innerHTML;
             showcaseinner.animate({
-                height: `100%`,
-                top: `0`
+                height: "100%",
+                top: "0",
             }, {duration: 300, fill: "forwards", easing: "cubic-bezier(0,1,.48,1)"})     
         }, 400);
-                
+
     }
 }
 

@@ -21,21 +21,28 @@
 
 
 h1 {
-    letter-spacing: 5px;
+    letter-spacing: 3px;
     text-shadow: white 0 0 5px;
     margin: 0;
     pointer-events: none;
     user-select: none;
 
     transition: color .3s;
-}
 
-h2, h3, p, li {
-    text-shadow: black 5px 5px 10px;
+    font-weight: 500;
+
+    font-size: 2vw;
 }
 
 h2 {
+    text-shadow: white 0px 0px 3px;
     font-size: 2em;
+    text-decoration: underline;
+    font-weight: 400;
+}
+
+h3, p, li {
+    text-shadow: black 5px 5px 5px;
 }
 
 h3 {
@@ -45,12 +52,20 @@ h3 {
 a {
     color: var(--lightblue);
     text-shadow: var(--lightblue) 0 0 2px;
-    font-weight: 400;
+    font-weight: 200;
     margin-left: 5px;
 }
 
 p, ul {
-    padding: 0 5%
+    padding: 0 5%;
+    margin-top: 0;
+}
+
+.spanHighlight {
+    color:var(--lightermagenta);
+    text-decoration: underline;
+    margin-left: 10px;
+    text-shadow: 0 0 2 var(--lightmagenta);
 }
 
 .selected {
@@ -74,6 +89,22 @@ p, ul {
     100% {
         text-shadow: var(--lightmagenta) 0 0 5px;
     }
+}
+
+#name {
+    position: fixed;
+    text-align: center;
+
+    top: 3vh;
+
+    left: 10vw;
+    width: 90vw;
+
+    font-size: 3em;
+    font-weight: 600;
+    text-shadow: white 0 0 7px;
+
+    text-decoration: underline;
 }
 
 .menuCollection {

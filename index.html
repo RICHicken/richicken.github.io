@@ -4,11 +4,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Richie Mohan</title>
+    <title>Richik Mohan</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
 </head>
 <body>
+
+    <div id="name">RICHIK MOHAN</div>
+
     <!-- Background Elements -->
     <div id="cursorContainer">
         <div id="glow">
@@ -27,17 +30,17 @@
     <div class="menuCollection" onmouseenter="changeZoom(1)" onmouseleave="changeZoom(2)">
         
         <div class="menuItem">
-            <h1>Crawl Minecraft Plugin</h1>
+            <h1>Minecraft Crawl Plugin</h1>
             <div class="menuDesc">
                 <h2>Minecraft Crawl Plugin</h2>
-                <h3>Programming Language: Java</h3>
-                <h3>Libraries Used: SpigotMC</h3>
+                <h3>Programming Language: <span class="spanHighlight">Java</span></h3>
+                <h3>Libraries Used: <span class="spanHighlight">SpigotMC</span></h3>
                 <h3>Github Link: <a href="https://github.com/RICHicken/MinecraftCrawl">github.com/RICHicken/MinecraftCrawl</a></h3>
                 <br>
                 <h3>Description:</h3>
-                <p>This is a plugin for Minecraft: Java Edition (version 1.15.2) which allows players to take control of almost any hostile mob in the game! If a player dies, then the person who killed them becomes the main player. First one to beat the game is the player character wins!</p>
+                <p>This is a plugin for Minecraft: Java Edition (version 1.15.2) which allows players to take control of almost any hostile mob in the game! This allows for two different types of game modes. The default mode is if a player dies, then the person who killed them becomes the main player, and the first one to beat the game is the player character wins. The alternate mode assigns one player is the speedrunner, who needs to beat the whole game, and the game ends if they die. Resetting is easy because you don’t need to manually set the game mode!</p>
                 <br>
-                <h3>Notes:</h3>
+                <h3>Summary:</h3>
                 <ul>
                     <li>Allows players to control normally uncontrollable base-game monsters</li>
                     <li>Persists state of user-preferences across multiple runs of the server</li>
@@ -48,16 +51,44 @@
         <div class="menuItem">
             <h1>Sudoku Puzzle Generator</h1>
             <div class="menuDesc">
-                2
+                <h2>Sudoku Puzzle Generator</h2>
+                <h3>Programming Language: <span class="spanHighlight">C#</span></h3>
+                <h3>Libraries Used: <span class="spanHighlight">SFML</span></h3>
+                <h3>Github Link - GUI Version: <a href="https://github.com/RICHicken/Sudoku-Puzzle-Generator">github.com/RICHicken/Sudoku-Puzzle-Generator</a></h3>
+                <h3>Github Link - LaTeX Version: <a href="https://github.com/RICHicken/Sudoku-Generator-Latex">github.com/RICHicken/Sudoku-Generator-Latex</a></h3>
+                <br>
+                <h3>Description:</h3>
+                <p>This is a simple sudoku generator. Once run, it will generate a solvable sudoku puzzle and, depending on the version, will display the empty sudoku puzzle on the screen, or will generate a LaTeX file that can be compiled into a PDF.</p>
+                <br>
+                <h3>Summary:</h3>
+                <ul>
+                    <li>Built a Sudoku Generator backend in C#</li>
+                    <li>Built a front-end Graphical UI leveraging the SFML library </li>
+                    <li>Built an alternate version that generates a LaTeX file of a sudoku puzzle </li>
+                </ul>
             </div>
         </div>
         
         <div class="menuItem">
             <h1>Secure TCP Chat</h1>
             <div class="menuDesc">
+                <h2>Secure TCP Chat</h2>
+                <h3>Programming Language: <span class="spanHighlight">Go</span></h3>
+                <h3>Github Link <a href="https://github.com/RICHicken/Secure_TCP_Chat">https://github.com/RICHicken/Secure_TCP_Chat</a></h3>
 
+                <br>
+                <h3>Description:</h3>
+                <p>This project has a server and a client. The server will host a chat room for clients to join. Clients can join the server by inputting an IP address. Once a client joins, they can type their name and write to everyone else on the server. On top of that, all messages are encrypted using RSA encryption, so only connected members can see the messages. </p>
+                <br>
+                <h3>Summary:</h3>
+                <ul>
+                    <li>Built a server program that serves as a chat room.</li>
+                    <li>Built a client that can to connect to servers and chat with other connected clients.</li>
+                    <li>All messages are encrypted using RSA encryption.</li>
+                </ul>
             </div>
         </div>
+
     </div>
 
     <div id="showcase">
