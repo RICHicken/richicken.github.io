@@ -8,6 +8,9 @@ selected = -1;
 initialSelect = 0;
 
 window.onload = e => {
+
+    baseURL = location.href
+
     setup()
     changeGlow()
     clickedItem(initialSelect)
@@ -40,7 +43,6 @@ window.addEventListener("scroll", e => {
         connector2.style.top = `${(window.innerHeight/ 2) + 4}px`
     }
     else {
-        console.log(((targetY - window.scrollY) - (window.innerHeight/ 2)) * -1)
         connector2.style.top = `${targetY}px`
         connector2.style.height = `${((targetY) - (window.innerHeight/ 2)) * -1}px`
     }
@@ -89,6 +91,9 @@ function setup() {
 }
 
 function clickedItem(ind) {    
+
+    showcase.scrollIntoView()
+
     if (selected != ind) {
         showDesc(ind, true)
         if (selected >= 0) {
@@ -150,9 +155,11 @@ function showDesc(ind, transition) {
 function changeZoom(option) {
     switch (option) {
         case 1:
-            backgroundDim.style.opacity = ".6";
-            backgroundPattern.style.backgroundSize = "10vmin 10vmin"
-            backgroundGradient.style.backgroundSize = "300vmin 150vmin"
+            if (window.innerWidth > 768) {
+                backgroundDim.style.opacity = ".6";
+                backgroundPattern.style.backgroundSize = "10vmin 10vmin"
+                backgroundGradient.style.backgroundSize = "300vmin 150vmin"
+            }
             break;
 
         case 2:

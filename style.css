@@ -17,6 +17,10 @@
     font-family: 'OpenSans', 'Courier New', Courier, monospace;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
   /* FORGROUND ELEMENTS */
 
 
@@ -326,4 +330,45 @@ body {
     height: 2%;
     left: 0;
     top: 20px;
+}
+
+/* Small width */
+
+@media only screen and (max-width: 768px) {
+    #name {
+        position: static;
+        width: 100%;
+        text-align: center;
+        font-size: 2em;
+    }
+
+    .menuCollection {
+        position: static;
+        border: none;
+        width: 100%;
+        text-align: center;
+    }
+
+    .menuItem h1 {
+        font-size: 2em;
+    }
+
+    #showcase {
+        position: static;
+        box-sizing: border-box;
+        left:0;
+        width: 100%;
+
+        border: none;
+        border-top: 4px solid var(--lightmagenta);
+    }
+
+    #showcaseinner {
+        padding-top: 20px;
+    }
+
+    #connector1, #connector2, #connector3 {
+        display: none;
+    }
+
 }
