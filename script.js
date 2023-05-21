@@ -7,6 +7,8 @@ selected = -1;
 
 initialSelect = 0;
 
+mobileMenu = true;
+
 window.onload = e => {
 
     baseURL = location.href
@@ -39,6 +41,11 @@ window.onload = e => {
 window.addEventListener("resize", e => {
     showDesc(selected, false)
     changeGlow()
+
+    if (window.innerWidth >= 768) {
+        mobileMenu = false;
+        toggleDisplay()
+    }
 });
 
 window.addEventListener("mousemove", e => {
@@ -167,6 +174,25 @@ function changeZoom(option) {
             backgroundPattern.style.backgroundSize = "8vmin 8vmin"
             backgroundGradient.style.backgroundSize = "200vmin 100vmin"
             break;
+    }
+}
+
+function toggleDisplay() {
+
+    mobileMenu = !mobileMenu
+
+    if (mobileMenu) {
+        document.querySelector(".menuCollection").style.height = "auto";
+        hamburger1.classList.add("alt");
+        hamburger2.classList.add("alt");
+        hamburger3.classList.add("alt");
+    } 
+    else {
+        document.querySelector(".menuCollection").style.height = "0";
+
+        hamburger1.classList.remove("alt");
+        hamburger2.classList.remove("alt");
+        hamburger3.classList.remove("alt");
     }
 }
 

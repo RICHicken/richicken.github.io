@@ -41,7 +41,6 @@ h1 {
 h2 {
     text-shadow: white 0px 0px 3px;
     font-size: 2em;
-    text-decoration: underline;
     font-weight: 400;
 }
 
@@ -68,7 +67,6 @@ p, ul {
 
 .spanHighlight {
     color:var(--lightermagenta);
-    text-decoration: underline;
     margin-left: 10px;
     text-shadow: 0 0 2 var(--lightmagenta);
 }
@@ -175,6 +173,64 @@ p, ul {
 .menuItem {
     padding: 20px 0;
     transition: opacity .3s;
+}
+
+/* Hamburger */
+
+#hamburger {
+    position: absolute;
+    display:none;
+    top: 10px;
+    left: 10px;
+
+    width: 38px;
+    height: 35px;
+}
+
+#hamburger1, #hamburger2, #hamburger3 {
+    position: absolute;
+    border-radius: 3px;
+    background-color: white;
+    box-shadow: white 0 0 5px;
+    height: 3px;
+
+    transition: all .3s cubic-bezier(0,.76,.14,.89);
+}
+
+
+#hamburger1, #hamburger2 {
+    width: 30px;
+
+    top: 0;
+    left: 0;
+}
+
+#hamburger1 {
+    top: 0px;
+}
+
+#hamburger2 {
+    top: 30px;
+}
+
+#hamburger3 {
+    width: 40px;
+    top: 15px
+}
+
+#hamburger1.alt {
+    rotate: 45deg;
+    top: 12px;
+}
+
+#hamburger2.alt {
+    rotate: 45deg;
+    top: 19px;
+    left: 7px;
+}
+
+#hamburger3.alt {
+    rotate: -45deg;
 }
 
 
@@ -346,9 +402,12 @@ body {
 
     .menuCollection {
         position: static;
+        overflow: hidden;
         border: none;
         width: 100%;
         text-align: center;
+
+        transition: height .3s;
     }
 
     .menuItem h1 {
@@ -357,6 +416,10 @@ body {
 
     .menuCollection:hover > .menuItem {
         opacity: 1;
+    }
+
+    #hamburger {
+        display: block;
     }
 
     #showcase {
