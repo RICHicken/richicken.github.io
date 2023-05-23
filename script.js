@@ -5,7 +5,7 @@ var menuDesc = []
 
 selected = -1;
 
-initialSelect = 2; // This is mainly for testing
+initialSelect = 0; // This is mainly for testing
 
 mobileMenu = true;
 
