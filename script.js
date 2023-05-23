@@ -5,7 +5,7 @@ var menuDesc = []
 
 selected = -1;
 
-initialSelect = 0;
+initialSelect = 2; // This is mainly for testing
 
 mobileMenu = true;
 
@@ -79,7 +79,7 @@ function setup() {
 
     changeGlow()
 
-    // Add the onclick event to all menu items and collapse them
+    // 
     let items = document.querySelectorAll(".menuItem")
     let i = 0
     items.forEach(item => {

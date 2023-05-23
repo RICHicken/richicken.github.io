@@ -10,6 +10,7 @@
     --lightblue: #68b2da;
     --lightmagenta: #ce46ff;
     --lightermagenta: #de8cfc;
+    --lightorange: #d4b267;
   }
 
 * {
@@ -42,6 +43,7 @@ h2 {
     text-shadow: white 0px 0px 3px;
     font-size: 2em;
     font-weight: 400;
+    margin-bottom: 0;
 }
 
 h3, p, li {
@@ -65,10 +67,60 @@ p, ul {
     margin-top: 0;
 }
 
+
+#name {
+    position: fixed;
+    text-align: center;
+
+    top: 3vh;
+
+    left: 10vw;
+    width: 90vw;
+
+    font-size: 3em;
+    font-weight: 600;
+    text-shadow: white 0 0 7px;
+
+    text-decoration: underline;
+}
+
+.date {
+    color: var(--lightorange);
+    text-shadow: 0 0 5px var(--lightorange);
+    font-weight: 700;
+    font-style: italic;
+}
+
+/* Inline Span Classes */
 .spanHighlight {
     color:var(--lightermagenta);
     margin-left: 10px;
-    text-shadow: 0 0 2 var(--lightmagenta);
+    text-shadow: 0 0 5px var(--lightmagenta);
+}
+
+.spanGlow {
+    text-shadow: 0 0 5px white;
+}
+
+/* Menu CSS */
+
+.menuCollection {
+    position:absolute;
+    top: 10vh;
+    left: 2vw;
+    border-right: 5px solid white;
+    padding-right: .8vw;
+    width: 15vw;
+    text-align: left;
+
+}
+
+.menuCollection:hover > .menuItem {
+    opacity: .1;
+}
+
+.menuCollection:hover > .menuItem:hover  {
+    opacity: 1;
 }
 
 .selected {
@@ -94,40 +146,7 @@ p, ul {
     }
 }
 
-#name {
-    position: fixed;
-    text-align: center;
-
-    top: 3vh;
-
-    left: 10vw;
-    width: 90vw;
-
-    font-size: 3em;
-    font-weight: 600;
-    text-shadow: white 0 0 7px;
-
-    text-decoration: underline;
-}
-
-.menuCollection {
-    position:absolute;
-    top: 10vh;
-    left: 2vw;
-    border-right: 5px solid white;
-    padding-right: .8vw;
-    width: 15vw;
-    text-align: left;
-
-}
-
-.menuCollection:hover > .menuItem {
-    opacity: .1;
-}
-
-.menuCollection:hover > .menuItem:hover  {
-    opacity: 1;
-}
+/* Showcase box */
 
 #showcase {
     position: fixed;
@@ -363,7 +382,6 @@ body {
     background: linear-gradient(var(--lightmagenta), var(--lightblue));
     width: 100px;
     height: 100px;
-    /* background: repeating-linear-gradient(var(--lightblue), var(--lightorange)); */
     animation: patternMove 5s infinite linear;
     mix-blend-mode: multiply;
 
