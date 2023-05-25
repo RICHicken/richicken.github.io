@@ -4,13 +4,16 @@
     src: url(fonts/OpenSans-VariableFont.ttf);
 } 
 :root {
-    --darkblue: #090a12;
-    --bluepurple: #2e294e;
-    --gray: #7d8491;
-    --lightblue: #68b2da;
-    --lightmagenta: #ce46ff;
-    --lightermagenta: #de8cfc;
-    --lightorange: #d4b267;
+    /* Background Colors  */
+    --bgcol1: #000901; 
+    --bgcol2: #022605;
+    /* Mainly used for the dot colors */
+    --neutralcol: #f7b955;
+    /* Foreground Colors */
+    --maincol: #00d7f8;
+    --highlightcol: #589cf4;
+    --linkcol: #68b2da;
+    --altcol: #e5ff00;
   }
 
 * {
@@ -25,7 +28,7 @@ html {
   /* FORGROUND ELEMENTS */
 
 
-h1 {
+h2 {
     letter-spacing: 3px;
     text-shadow: white 0 0 5px;
     margin: 0;
@@ -39,7 +42,7 @@ h1 {
     font-size: 2vw;
 }
 
-h2 {
+.title {
     text-shadow: white 0px 0px 3px;
     font-size: 2em;
     font-weight: 400;
@@ -55,8 +58,8 @@ h3 {
 }
 
 a {
-    color: var(--lightblue);
-    text-shadow: var(--lightblue) 0 0 2px;
+    color: var(--linkcol);
+    text-shadow: var(--linkcol) 0 0 2px;
     font-weight: 200;
     margin-left: 5px;
     word-wrap: break-word;
@@ -85,17 +88,24 @@ p, ul {
 }
 
 .date {
-    color: var(--lightorange);
-    text-shadow: 0 0 5px var(--lightorange);
+    color: var(--altcol);
+    text-shadow: 0 0 5px var(--altcol);
     font-weight: 700;
     font-style: italic;
 }
 
+.category {
+    color: var(--altcol);
+    text-shadow: 0 0 5px var(--altcol);
+    text-decoration: underline;
+    font-size: 2.5vw;
+}
+
 /* Inline Span Classes */
 .spanHighlight {
-    color:var(--lightermagenta);
+    color:var(--highlightcol);
     margin-left: 10px;
-    text-shadow: 0 0 5px var(--lightmagenta);
+    text-shadow: 0 0 5px var(--maincol);
 }
 
 .spanGlow {
@@ -105,7 +115,7 @@ p, ul {
 /* Menu CSS */
 
 .menuCollection {
-    position:absolute;
+    position:relative;
     top: 10vh;
     left: 2vw;
     border-right: 5px solid white;
@@ -113,6 +123,8 @@ p, ul {
     width: 15vw;
     text-align: left;
 
+    min-height: 90vh;
+    margin-bottom: 10vh;
 }
 
 .menuCollection:hover > .menuItem {
@@ -124,8 +136,8 @@ p, ul {
 }
 
 .selected {
-    color: var(--lightermagenta);
-    text-shadow: var(--lightmagenta) 0 0 5px;
+    color: var(--highlightcol);
+    text-shadow: var(--maincol) 0 0 5px;
 }
 
 .pulse {
@@ -134,24 +146,26 @@ p, ul {
 
 @keyframes pulseAnim {
     0% {
-        text-shadow: var(--lightmagenta) 0 0 5px;
+        text-shadow: var(--maincol) 0 0 5px;
     }
 
     50% {
-        text-shadow: var(--lightmagenta) 0 0 15px;
+        text-shadow: var(--maincol) 0 0 15px;
     }
 
     100% {
-        text-shadow: var(--lightmagenta) 0 0 5px;
+        text-shadow: var(--maincol) 0 0 5px;
     }
 }
+
+ 
 
 /* Showcase box */
 
 #showcase {
     position: fixed;
 
-    border: 5px solid var(--lightmagenta);
+    border: 5px solid var(--maincol);
     border-radius: 5px;
     top: 15vh;
     left: 25vw;
@@ -159,7 +173,7 @@ p, ul {
     width: 70vw;
     height: 70vh;
 
-    box-shadow: var(--lightmagenta) 0 0 10px;
+    box-shadow: var(--maincol) 0 0 10px;
 
 }
 
@@ -180,13 +194,13 @@ p, ul {
 }
 
 #showcaseinner::-webkit-scrollbar-track {
-    -webkit-box-shadow:inset 0 0 6px var(--bluepurple); 
+    -webkit-box-shadow:inset 0 0 6px var(--bgcol2); 
     border-radius:5px;
 }
 
 #showcaseinner::-webkit-scrollbar-thumb {
     /* -webkit-box-shadow: inset 0 0 6px red;  */
-    background: linear-gradient(to bottom, transparent, var(--lightermagenta), transparent);
+    background: linear-gradient(to bottom, transparent, var(--highlightcol), transparent);
 }
 
 .menuItem {
@@ -256,9 +270,9 @@ p, ul {
 /* Connector pieces */
 #connector1, #connector2, #connector3 {
     position: fixed;
-    background-color: var(--lightermagenta);
+    background-color: var(--highlightcol);
     transition: top .3s;
-    box-shadow: var(--lightmagenta) 0 0 5px;
+    box-shadow: var(--maincol) 0 0 5px;
 
 }
 
@@ -290,6 +304,7 @@ p, ul {
 
 body {
     margin: 0;
+    padding-bottom: 20vh;
     overflow-x: hidden;
 }
 
@@ -313,14 +328,14 @@ body {
     left: 0;
     background-position: 0% 0%;
     background-size: 8vmin 8vmin;
-    background-image: radial-gradient(gray 4%, transparent 5%);
+    background-image: radial-gradient(var(--neutralcol) 4%, transparent 5%);
 
     opacity: .3;
     width: 100vw;
     height: 100vh;
     position: fixed;
     
-    animation: dotMovement 90s infinite ease-in;
+    animation: dotMovement 90s infinite linear;
 
     transition: background-size .5s;
 
@@ -343,7 +358,7 @@ body {
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-image: radial-gradient(var(--bluepurple), var(--darkblue));
+    background-image: radial-gradient(var(--bgcol2), var(--bgcol1));
     background-size: 200vmin 100vmin;
     animation: bodyMove 20s infinite linear;
     transition: background-size .5s;
@@ -379,7 +394,7 @@ body {
 }
 
 #glowCircle {
-    background: linear-gradient(var(--lightmagenta), var(--lightblue));
+    background: linear-gradient(var(--maincol), var(--altcol));
     width: 100px;
     height: 100px;
     animation: patternMove 5s infinite linear;
@@ -400,7 +415,7 @@ body {
 
 .glowHole {
     position: absolute;
-    background-color: var(--darkblue);
+    background-color: var(--bgcol1);
     width: 5%;
     height: 2%;
     left: 0;
@@ -428,7 +443,7 @@ body {
         transition: height .3s;
     }
 
-    .menuItem h1 {
+    .menuItem h2 {
         font-size: 2em;
     }
 
@@ -447,7 +462,7 @@ body {
         width: 100%;
 
         border: none;
-        border-top: 4px solid var(--lightmagenta);
+        border-top: 4px solid var(--maincol);
         box-shadow: none;
         height: auto;
     }
